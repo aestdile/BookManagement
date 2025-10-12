@@ -242,7 +242,6 @@ dotnet ef migrations remove --startup-project ../BookManagement.API
 - `GET /api/admin/dashboard` - Dashboard statistics
 - `GET /api/admin/borrows/active` - Aktiv borrowlar
 - `GET /api/admin/borrows/overdue` - Kechikkan kitoblar
-- `GET /api/admin/users` - Foydalanuvchilar ro'yxati
 
 ## 🎨 Response Format
 
