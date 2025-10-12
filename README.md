@@ -6,103 +6,115 @@
 BookManagementSystem/
 │
 ├── src/
-│   ├── BookManagement.Domain/              # Entities va Enums
-│   │   ├── Entities/
-│   │   │   ├── User.cs
-│   │   │   ├── Book.cs
-│   │   │   ├── BorrowRecord.cs
-│   │   │   └── Reservation.cs
-│   │   ├── Enums/
-│   │   │   ├── BookStatus.cs
-│   │   │   ├── BorrowStatus.cs
-│   │   │   └── UserRole.cs
-│   │   └── Common/
-│   │       └── BaseEntity.cs
+│   ├── BookManagement.Domain/             								
+│   │   ├── Entities/														
+│   │   │   ├── User.cs														
+│   │   │   ├── Book.cs														
+│   │   │   ├── BorrowRecord.cs												
+│   │   │   └── Reservation.cs												
+│   │   ├── Enums/															
+│   │   │   ├── BookStatus.cs												
+│   │   │   ├── BorrowStatus.cs												
+│   │   │   └── UserRole.cs													
+│   │   └── Common/															
+│   │       └── BaseEntity.cs												
 │   │
-│   ├── BookManagement.Application/         # Business Logic
-│   │   ├── DTOs/
-│   │   │   ├── Auth/
-│   │   │   │   ├── RegisterDto.cs
-│   │   │   │   ├── LoginDto.cs
-│   │   │   │   └── TokenResponseDto.cs
-│   │   │   ├── Books/
-│   │   │   │   ├── BookDto.cs
-│   │   │   │   ├── CreateBookDto.cs
-│   │   │   │   ├── UpdateBookDto.cs
-│   │   │   │   └── BookStatusDto.cs
-│   │   │   └── Borrowing/
-│   │   │       ├── BorrowRequestDto.cs
-│   │   │       ├── BorrowRecordDto.cs
-│   │   │       └── BorrowHistoryDto.cs
-│   │   ├── Interfaces/
-│   │   │   ├── IAuthService.cs
-│   │   │   ├── IBookService.cs
-│   │   │   ├── IBorrowingService.cs
-│   │   │   └── ITokenService.cs
-│   │   ├── Services/
-│   │   │   ├── AuthService.cs
-│   │   │   ├── BookService.cs
-│   │   │   ├── BorrowingService.cs
-│   │   │   └── TokenService.cs
-│   │   ├── Validators/
-│   │   │   ├── RegisterDtoValidator.cs
-│   │   │   ├── CreateBookDtoValidator.cs
-│   │   │   └── BorrowRequestValidator.cs
-│   │   ├── Exceptions/
-│   │   │   ├── BookNotAvailableException.cs
-│   │   │   ├── InvalidCredentialsException.cs
-│   │   │   └── UserAlreadyExistsException.cs
-│   │   └── Mappings/
-│   │       └── MappingProfile.cs
+│   ├── BookManagement.Application/         								
+│   │   ├── DTOs/															
+│   │   │   ├── Common/														
+│   │   │   │   ├── ApiResponse.cs											
+│   │   │   │   ├── PagedResult.cs											
+│   │   │   ├── Admin														
+│   │   │   │   ├── DashboardStatsDto.cs									
+│   │   │   ├── Auth/														
+│   │   │   │   ├── RegisterDto.cs											
+│   │   │   │   ├── LoginDto.cs											
+│   │   │   │   ├── RefreshTokenDto.cs										
+│   │   │   │   ├── UserDto.cs													
+│   │   │   │   └── TokenResponseDto.cs									
+│   │   │   ├── Books/														
+│   │   │   │   ├── BookDto.cs												
+│   │   │   │   ├── CreateBookDto.cs										
+│   │   │   │   ├── UpdateBookDto.cs										
+│   │   │   │   └── BookStatusDto.cs										
+│   │   │   └── Borrowing/													
+│   │   │       ├── BorrowRequestDto.cs									
+│   │   │       ├── BorrowRecordDto.cs										
+│   │   │       ├── CurrentBorrowerDto.cs									
+│   │   │       └── BorrowHistoryDto.cs									
+│   │   ├── Interfaces/														
+│   │   │   ├── IAuthService.cs												
+│   │   │   ├── IBookService.cs												
+│   │   │   ├── IBorrowingService.cs										
+│   │   │   └── ITokenService.cs											
+│   │   ├── Services/														
+│   │   │   ├── AuthService.cs												
+│   │   │   ├── BookService.cs												
+│   │   │   ├── BorrowingService.cs										
+│   │   │   └── TokenService.cs												
+│   │   ├── Validators/														
+│   │   │   ├── RegisterDtoValidator.cs									
+│   │   │   ├── LoginDtoValidator.cs										
+│   │   │   ├── CreateBookDtoValidator.cs									
+│   │   │   └── BorrowRequestValidator.cs									
+│   │   ├── Exceptions/														
+│   │   │   ├── BookNotAvailableException.cs								
+│   │   │   ├── MaxBorrowLimitException.cs								
+│   │   │   ├── NotFoundException.cs										
+│   │   │   ├── InvalidCredentialsException.cs							
+│   │   │   └── UserAlreadyExistsException.cs								
+│   │   └── Mappings/														
+│   │       └── MappingProfile.cs											
 │   │
-│   ├── BookManagement.Infrastructure/      # Data Access
-│   │   ├── Data/
-│   │   │   ├── ApplicationDbContext.cs
-│   │   │   └── DbInitializer.cs
-│   │   ├── Repositories/
-│   │   │   ├── Interfaces/
-│   │   │   │   ├── IRepository.cs
-│   │   │   │   ├── IBookRepository.cs
-│   │   │   │   ├── IUserRepository.cs
-│   │   │   │   └── IBorrowRecordRepository.cs
-│   │   │   └── Implementations/
-│   │   │       ├── Repository.cs
-│   │   │       ├── BookRepository.cs
-│   │   │       ├── UserRepository.cs
-│   │   │       └── BorrowRecordRepository.cs
-│   │   └── Configurations/
-│   │       ├── UserConfiguration.cs
-│   │       ├── BookConfiguration.cs
-│   │       └── BorrowRecordConfiguration.cs
-│   │
-│   └── BookManagement.API/                 # Web API
-│       ├── Controllers/
-│       │   ├── AuthController.cs
-│       │   ├── BooksController.cs
-│       │   ├── BorrowingController.cs
-│       │   └── AdminController.cs
-│       ├── Middleware/
-│       │   ├── ExceptionHandlingMiddleware.cs
+│   ├── BookManagement.Infrastructure/      								
+│   │   ├── Data/															
+│   │   │   └── ApplicationDbContext.cs									 
+│   │   ├── Repositories/													
+│   │   │   ├── Interfaces/													
+│   │   │   │   ├── IRepository.cs											
+│   │   │   │   ├── IBookRepository.cs										
+│   │   │   │   ├── IUserRepository.cs										
+│   │   │   │   └── IBorrowRecordRepository.cs							
+│   │   │   └── Implementations/											
+│   │   │       ├── Repository.cs											
+│   │   │       ├── BookRepository.cs										
+│   │   │       ├── UserRepository.cs										
+│   │   │       └── BorrowRecordRepository.cs								
+│   │   └── Configurations/													
+│   │       ├── UserConfiguration.cs										
+│   │       ├── BookConfiguration.cs										
+│   │       ├── BorrowRecordConfiguration.cs								
+│   │       └── ReservationConfiguration.cs								
+│   └── BookManagement.API/                 								
+│       ├── Controllers/														
+│       │   ├── AuthController.cs											
+│       │   ├── BooksController.cs											
+│       │   ├── BorrowingController.cs										
+│       │   └── AdminController.cs											
+│       ├── Middleware/														
+│       │   ├── ExceptionHandlingMiddleware.cs							
 │       │   └── RequestLoggingMiddleware.cs
-│       ├── Filters/
-│       │   └── ValidationFilter.cs
-│       ├── Extensions/
-│       │   └── ServiceExtensions.cs
-│       ├── appsettings.json
-│       ├── appsettings.Development.json
-│       └── Program.cs
+│       ├── Filters/															
+│       │   └── ValidationFilter.cs										
+│       ├── Extensions/														
+│       │   └── ServiceExtensions.cs										
+│       ├── appsettings.json												
+│       ├── appsettings.Development.json									
+│       └── Program.cs														
 │
 └── tests/
     ├── BookManagement.UnitTests/
-    │   ├── Services/
-    │   │   ├── AuthServiceTests.cs
-    │   │   ├── BookServiceTests.cs
-    │   │   └── BorrowingServiceTests.cs
-    │   └── Validators/
-    │       └── RegisterDtoValidatorTests.cs
+    │   └── Services/
+    │       ├── AuthServiceTests.cs
+    │       ├── BookServiceTests.cs
+    │       ├── BorrowingServiceTests.cs
+    │       └── TokenServiceTests.cs
+    │   
     └── BookManagement.IntegrationTests/
         └── Controllers/
+	    ├── AdminControllerTests.cs
             ├── AuthControllerTests.cs
+	    ├── BorrowingControllerTests.cs
             └── BooksControllerTests.cs
 ```
 
