@@ -301,6 +301,7 @@ dotnet ef migrations remove --startup-project ../BookManagement.API
 6. **Documentation** - Swagger configuration
 7. **Deployment** - Production settings
 
+```
 ## 🎯 Key Features
 
 ✅ Phone number authentication (UZB format: +998XXXXXXXXX)
@@ -317,7 +318,7 @@ dotnet ef migrations remove --startup-project ../BookManagement.API
 ✅ AutoMapper
 ✅ Swagger documentation
 ✅ Unit tests
-
+```
 
 ---
 
